@@ -1,0 +1,15 @@
+
+from building import *
+import rtconfig
+
+cwd     = GetCurrentDir()
+CPPPATH = [cwd + '/apps/system/generic/machine/rv64_virt']
+CPPPATH += [cwd + '/lib/rpmsg']
+CPPPATH += [cwd + '/lib/include/openamp']
+CPPPATH += [cwd + '/lib/include']
+
+src = [cwd + '/apps/system/generic/machine/zynq7']
+
+group = DefineGroup('openAMP', src, depend = ['RT_USING_openAMP'], CPPPATH = CPPPATH)
+
+Return('group')
